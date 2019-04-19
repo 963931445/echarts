@@ -1,0 +1,35 @@
+option = {
+    xAxis: {
+        type: 'category',
+       
+    },
+    yAxis: {
+        type: 'value',
+        
+    },
+    series: [{
+        data: [120, 200, 150, 80, 70, 110, 130],
+        type: 'bar'
+    }]
+};
+
+function abc(){
+   
+    setInterval(function(){
+        var change = option.series[0].data
+        change.shift()
+        change.push(Math.floor(Math.random()*100+20))
+        console.log(change)
+        myChart.setOption(option);
+    },1000)
+}
+setTimeout(function() {
+    myChart.hideLoading()
+    myChart.setOption(option);
+    abc()
+ 
+   
+},2000);
+ myChart.showLoading()
+
+
